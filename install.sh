@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+
+SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
@@ -303,6 +306,9 @@ sudo systemctl enable sddm
 sudo systemctl enable ufw
 
 ########################################
+echo -e "${GREEN}==> Configuring${NC}"
+
+cp "$SCRIPT_DIR/hypr/hyprland.conf"  ~/.config/hypr/hyprland.conf
 
 echo ""
 echo -e "${GREEN}========================================${NC}"
