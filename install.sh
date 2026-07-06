@@ -3,8 +3,6 @@
 set -euo pipefail
 
 
-SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
-
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
@@ -13,7 +11,7 @@ install() {
 }
 
 echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN} Updating system${NC}"
+echo -e "${GREEN}    Updating system${NC}"
 echo -e "${GREEN}========================================${NC}"
 
 sudo pacman -Syu --noconfirm
@@ -28,9 +26,9 @@ sudo pacman -Syu --noconfirm
 # hyprlock          — екран блокування
 # hypridle          — демон бездіяльності (idle)
 ########################################
-
-echo -e "${GREEN}==> Installing Hyprland${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Hyprland${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     hyprland \
     waybar \
@@ -46,9 +44,9 @@ install \
 # vim      — текстовий редактор
 # dolphin  — файловий менеджер
 ########################################
-
-echo -e "${GREEN}==> Installing Terminal${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Terminal${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     kitty \
     vim \
@@ -61,9 +59,9 @@ install \
 # cliphist     — історія буфера обміну
 # wl-clipboard — буфер обміну для Wayland
 ########################################
-
-echo -e "${GREEN}==> Installing Screenshot tools${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Screenshot tools${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     grim \
     slurp \
@@ -78,9 +76,9 @@ install \
 # xdg-desktop-portal-hyprland  — портал для Hyprland
 # xdg-utils                    — утиліти робочого столу
 ########################################
-
-echo -e "${GREEN}==> Installing Wayland support${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Wayland support${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     qt5-wayland \
     qt6-wayland \
@@ -95,9 +93,9 @@ install \
 # wget       — завантажувач файлів
 # curl       — HTTP-клієнт
 ########################################
-
-echo -e "${GREEN}==> Installing Development tools${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Development tools${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     git \
     base-devel \
@@ -112,18 +110,18 @@ install \
 # zsh-completions            — розширений набір автодоповнень
 # zsh-history-substring-search — пошук по історії підрядком через стрілки
 ########################################
-
-echo -e "${GREEN}==> Installing Zsh${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Zsh${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     zsh \
     zsh-autosuggestions \
     zsh-syntax-highlighting \
     zsh-completions \
     zsh-history-substring-search
-
-echo -e "${GREEN}==> Configuring Zsh${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Configuring Zsh${NC}"
+echo -e "${GREEN}========================================${NC}"
 if [ ! -f "$HOME/.zshrc" ]; then
     touch "$HOME/.zshrc"
 fi
@@ -147,9 +145,9 @@ sudo chsh -s /usr/bin/zsh "$USER"
 ########################################
 # yay — AUR-хелпер
 ########################################
-
-echo -e "${GREEN}==> Installing yay${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing yay${NC}"
+echo -e "${GREEN}========================================${NC}"
 if ! command -v yay >/dev/null 2>&1; then
     cd /tmp
     rm -rf yay
@@ -166,10 +164,12 @@ fi
 # Архіви
 # 7zip — утиліта для роботи з архівами
 ########################################
-
-echo -e "${GREEN}==> Installing Archive tools${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Archive tools${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
+    zip
+    unzip
     7zip
 
 ########################################
@@ -177,9 +177,9 @@ install \
 # mesa           — драйвери OpenGL
 # vulkan-radeon  — драйвер Vulkan для AMD
 ########################################
-
-echo -e "${GREEN}==> Installing Graphics drivers${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Graphics drivers${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     mesa \
     vulkan-radeon
@@ -189,9 +189,9 @@ install \
 # networkmanager          — менеджер мережі
 # network-manager-applet  — аплет у треї
 ########################################
-
-echo -e "${GREEN}==> Installing Networking${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Networking${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     networkmanager \
     network-manager-applet
@@ -204,9 +204,9 @@ install \
 # pipewire-jack    — сумісність з JACK
 # wireplumber      — менеджер сесій PipeWire
 ########################################
-
-echo -e "${GREEN}==> Installing Audio${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Audio${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     pipewire \
     pipewire-alsa \
@@ -220,9 +220,9 @@ install \
 # bluez-utils  — утиліти Bluetooth
 # blueman      — GUI для Bluetooth
 ########################################
-
-echo -e "${GREEN}==> Installing Bluetooth${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Bluetooth${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     bluez \
     bluez-utils \
@@ -233,9 +233,9 @@ install \
 # brightnessctl — керування яскравістю
 # playerctl     — керування медіаплеєром
 ########################################
-
-echo -e "${GREEN}==> Installing Utilities${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Utilities${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     brightnessctl \
     playerctl
@@ -246,9 +246,9 @@ install \
 # noto-fonts              — юнікод-шрифти
 # noto-fonts-emoji        — емодзі-шрифти
 ########################################
-
-echo -e "${GREEN}==> Installing Fonts${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Fonts${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     ttf-jetbrains-mono-nerd \
     noto-fonts \
@@ -258,9 +258,9 @@ install \
 # Менеджер входу
 # sddm — display manager
 ########################################
-
-echo -e "${GREEN}==> Installing Login Manager${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Login Manager${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     sddm
 
@@ -268,9 +268,9 @@ install \
 # Файрвол
 # ufw — файрвол
 ########################################
-
-echo -e "${GREEN}==> Installing Firewall${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing Firewall${NC}"
+echo -e "${GREEN}========================================${NC}"
 install \
     ufw
 
@@ -283,9 +283,9 @@ install \
 # elephant-providerlist        — провайдер: перемикач провайдерів
 # elephant-desktopapplications — провайдер: список desktop-застосунків
 ########################################
-
-echo -e "${GREEN}==> Installing AUR packages${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Installing AUR packages${NC}"
+echo -e "${GREEN}========================================${NC}"
 yay -S --needed --noconfirm \
     hyprshot \
     brave-bin \
@@ -297,20 +297,24 @@ yay -S --needed --noconfirm \
 ########################################
 # Enable Services
 ########################################
-
-echo -e "${GREEN}==> Enabling services${NC}"
-
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Enabling services${NC}"
+echo -e "${GREEN}========================================${NC}"
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 sudo systemctl enable sddm
 sudo systemctl enable ufw
 
 ########################################
-echo -e "${GREEN}==> Configuring${NC}"
-
-cp "$SCRIPT_DIR/hypr/hyprland.conf"  ~/.config/hypr/hyprland.lua
-
 echo ""
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN} Installation completed successfully!${NC}"
 echo -e "${GREEN}========================================${NC}"
+
+sleep 5
+
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN} Rebooting${NC}"
+echo -e "${GREEN}========================================${NC}"
+
+reboot
