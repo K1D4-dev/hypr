@@ -25,6 +25,7 @@ sudo pacman -Syu --noconfirm
 # hyprpaper         — демон шпалер
 # hyprlock          — екран блокування
 # hypridle          — демон бездіяльності (idle)
+# hyprlauncher                       — застосунок-лаунчер 
 ########################################
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}    Installing Hyprland${NC}"
@@ -36,7 +37,8 @@ install \
     hyprpolkitagent \
     hyprpaper \
     hyprlock \
-    hypridle
+    hypridle \
+    hyprlauncher
 
 ########################################
 # Термінал та файловий менеджер
@@ -92,7 +94,6 @@ install \
 # base-devel — базові інструменти збірки
 # wget       — завантажувач файлів
 # curl       — HTTP-клієнт
-# code       — VS Code
 ########################################
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}    Installing Development tools${NC}"
@@ -101,8 +102,7 @@ install \
     git \
     base-devel \
     wget \
-    curl \
-    code
+    curl
 
 ########################################
 # Shell
@@ -117,7 +117,6 @@ echo -e "${GREEN}    Installing Zsh${NC}"
 echo -e "${GREEN}========================================${NC}"
 install \
     zsh \
-    zsh-autosuggestions \
     zsh-syntax-highlighting \
     zsh-completions \
     zsh-history-substring-search
@@ -170,9 +169,9 @@ echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}    Installing Archive tools${NC}"
 echo -e "${GREEN}========================================${NC}"
 install \
-    zip
-    unzip
-    7zip
+    zip \
+    unzip \
+    7zip 
 
 ########################################
 # Графіка
@@ -184,7 +183,9 @@ echo -e "${GREEN}    Installing Graphics drivers${NC}"
 echo -e "${GREEN}========================================${NC}"
 install \
     mesa \
-    vulkan-radeon
+    vulkan-radeon \
+    lib32-vulkan-radeon
+
 
 ########################################
 # Мережа
@@ -280,21 +281,16 @@ install \
 # AUR-пакети
 # hyprshot                     — утиліта для скріншотів
 # brave-bin                    — браузер Brave
-# walker                       — застосунок-лаунчер (AUR, потребує elephant)
-# elephant                     — бекенд, необхідний для роботи walker
-# elephant-providerlist        — провайдер: перемикач провайдерів
-# elephant-desktopapplications — провайдер: список desktop-застосунків
-########################################
+
+
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN}    Installing AUR packages${NC}"
 echo -e "${GREEN}========================================${NC}"
 yay -S --needed --noconfirm \
     hyprshot \
     brave-bin \
-    walker \
-    elephant \
-    elephant-providerlist \
-    elephant-desktopapplications
+
+    
 
 ########################################
 # Enable Services
@@ -308,6 +304,27 @@ sudo systemctl enable sddm
 sudo systemctl enable ufw
 
 ########################################
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Instaling Game services${NC}"
+echo -e "${GREEN}========================================${NC}"
+sudo cp ~/hypr/etc/pacman.conf /etc/pacman.conf
+sudo pacman -Syu --noconfirm
+sudo pacman -S steam
+
+
+echo -e "${GREEN}========================================${NC}"
+echo -e "${GREEN}    Configuring${NC}"
+echo -e "${GREEN}========================================${NC}"
+
+
+
+
+
+
+
+
+
+
 echo ""
 echo -e "${GREEN}========================================${NC}"
 echo -e "${GREEN} Installation completed successfully!${NC}"
