@@ -304,22 +304,22 @@ sudo systemctl enable sddm
 sudo systemctl enable ufw
 
 ########################################
-echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}    Instaling Game services${NC}"
-echo -e "${GREEN}========================================${NC}"
-sudo cp /home/vshliakhovyi/hypr/etc/pacman.conf /etc/pacman.conf
-sudo pacman -Syu --noconfirm
-sudo pacman -S steam
+#echo -e "${GREEN}========================================${NC}"
+#echo -e "${GREEN}    Instaling Game services${NC}"
+#echo -e "${GREEN}========================================${NC}"
+#sudo cp /home/vshliakhovyi/hypr/etc/pacman.conf /etc/pacman.conf
+#sudo pacman -Syu --noconfirm
+#sudo pacman -S steam
 
 
-echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}    Configuring${NC}"
-echo -e "${GREEN}========================================${NC}"
+#echo -e "${GREEN}========================================${NC}"
+#echo -e "${GREEN}    Configuring${NC}"
+#echo -e "${GREEN}========================================${NC}"
 
-sudo mkdir -p ~/.config/waybar ~/.config/hypr
+#sudo mkdir -p ~/.config/waybar ~/.config/hypr
 
-sudo cp -r ~/hypr/waybar/ ~/.config/
-sudo cp -r ~/hypr/hypr/ ~/.config/
+#sudo cp -r ~/hypr/waybar/ ~/.config/
+#sudo cp -r ~/hypr/hypr/ ~/.config/
 
 
 
